@@ -13,12 +13,17 @@
 
 input {
     height: 25px;
+    width: 110px;
     padding-left: 5px;
     border-radius: 5px;
 
     font-size: 16px;
     color: blue;
     
+
+    @media screen and (min-width: 425px){
+        width: 175px;
+    }
 }
 
 select {

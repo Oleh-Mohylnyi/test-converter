@@ -1,0 +1,52 @@
+<div class="converter">
+
+    <h1>конвертер валют</h1>
+
+    <div class="forms">
+    
+        <form>
+            <p>продаєте (ви віддаєте):</p>
+            <input 
+                type="number"
+                name="saleInput" 
+                (input)="inputHandler($event)"
+                [value]="saleAmount">
+            <select required 
+                name="saleCurrencyType"
+                (change) = "selectHandler($any($event.target))">
+                    <option 
+                        *ngFor="let currencyType of getCurrencyType()" 
+                        [value]="currencyType">
+                            {{currencyType}}
+                    </option>
+            </select>
+        </form>
+    
+        <form>
+            <p>купуєте (ви отримуєте):</p>
+            <input 
+                type="number"
+                name="buyInput"  
+                (input)="inputHandler($event)"
+                [value]="buyAmount">
+            <select required
+                name="buyCurrencyType"
+                (change) = "selectHandler($any($event.target))">
+                    <option 
+                        *ngFor="let currencyType of getCurrencyType()" 
+                        [value]="currencyType">
+                            {{currencyType}}
+                    </option>
+            </select>
+        </form>
+    
+    </div>
+
+    <p *ngIf="saleAmount !== 0 && saleCurrencyType !== buyCurrencyType">
+        {{saleAmount}} {{saleCurrencyType}} можна конвертувати в {{buyAmount}} {{buyCurrencyType}}
+        <span *ngIf="saleCurrencyType !== 'UAH' && buyCurrencyType !== 'UAH' && saleCurrencyType !== buyCurrencyType">
+            (без кросс курсу)
+        </span>
+    </p>
+
+</div>

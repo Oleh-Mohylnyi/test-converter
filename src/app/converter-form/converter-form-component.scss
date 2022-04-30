@@ -1,0 +1,33 @@
+.converter {
+    text-align: center;
+    border: 1px solid grey;
+    min-height: 215px;
+    border-radius: 10px;
+}
+
+.forms {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+input {
+    height: 25px;
+    padding-left: 5px;
+    border-radius: 5px;
+
+    font-size: 16px;
+    color: blue;
+    
+}
+
+select {
+    height: 25 px;
+    border: none;
+
+    &:hover {
+        color: blue;
+        font-weight: bold;
+        cursor: pointer;
+    }
+}
